@@ -7,9 +7,7 @@ echo "Installing StorageOS and ETCD"
 
 curl -s https://raw.githubusercontent.com/aeroniero33/scripts/master/install-storageos/install-etcd.sh
 
-if [[ -z "${SSH_USER}" ]]; then
-  SSH_USER="root"
-fi
+SSH_USER="${SSH_USER:-root}"
 
 scp ${SSH_USER}@${ETCD_HOST} -o StrictHostKeyChecking=no ./install-etcd.sh $ETCD_HOST:~/install-etcd.sh
 echo ${ETCD_HOST} | ssh ${SSH_USER}@${ETCD_HOST} -o StrictHostKeyChecking=no bash install-etcd.sh
