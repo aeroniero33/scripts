@@ -1,0 +1,1 @@
+echo $ETCD_HOST | bash <(curl -s https://raw.githubusercontent.com/aeroniero33/scripts/master/install-storageos/install-storageos.sh)
